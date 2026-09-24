@@ -1,0 +1,8 @@
+{
+  "name": "Mythos Atlas",
+  "description": "An interactive digital encyclopedia of world mythologies, legendary creatures, pantheons, timelines, and ancient connections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
