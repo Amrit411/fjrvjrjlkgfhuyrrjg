@@ -52,28 +52,11 @@ export function useArtwork(id: string) {
     };
   }
 
-  const spriteDef = getCharacterSprite(id);
-
-  if (spriteDef) {
-    const fileUrl = `${getCharacterPortraitUrl(id)!}${version > 0 ? `?v=${version}` : ''}`;
-    return {
-      hasArtwork: true,
-      artworkType: 'file' as const,
-      src: fileUrl,
-      spriteDef,
-      style: {
-        backgroundImage: `url(${fileUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      },
-    };
-  }
-
   return {
     hasArtwork: false,
     artworkType: 'none' as const,
     src: undefined,
-    spriteDef: undefined,
+    spriteDef: getCharacterSprite(id),
     style: {},
   };
 }

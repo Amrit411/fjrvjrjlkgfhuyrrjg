@@ -41,8 +41,6 @@ export function getCharacterSprite(id: string): CharacterSpriteDef | undefined {
   return CHARACTER_ARTWORKS.find((c) => c.id === id);
 }
 
-export function getCharacterPortraitUrl(id: string): string | undefined {
-  const char = getCharacterSprite(id);
-  if (!char) return undefined;
-  return `${import.meta.env.BASE_URL}assets/portraits/${char.filename}`;
+export function getCharacterPortraitUrl(_id: string): string | undefined {
+  return undefined;
 }

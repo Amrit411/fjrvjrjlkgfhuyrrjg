@@ -1,68 +1,12 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import fs from 'fs';
-import { defineConfig, Plugin } from 'vite';
-
-function uploadPortraitPlugin(): Plugin {
-  return {
-    name: 'upload-portrait-plugin',
-    configureServer(server) {
-      server.middlewares.use('/api/upload-portrait', (req, res) => {
-        if (req.method !== 'POST') {
-          res.statusCode = 405;
-          res.end(JSON.stringify({ error: 'Method Not Allowed' }));
-          return;
-        }
-
-        let body = '';
-        req.on('data', (chunk) => {
-          body += chunk;
-        });
-
-        req.on('end', () => {
-          try {
-            const { filename, dataUrl } = JSON.parse(body);
-            if (!filename || !dataUrl) {
-              res.statusCode = 400;
-              res.end(JSON.stringify({ error: 'filename and dataUrl required' }));
-              return;
-            }
-
-            const cleanFilename = path.basename(filename);
-            const base64Data = dataUrl.replace(/^data:image\/\w+;base64,/, '');
-            const buffer = Buffer.from(base64Data, 'base64');
-
-            const targetDir = path.resolve('public/assets/portraits');
-            if (!fs.existsSync(targetDir)) {
-              fs.mkdirSync(targetDir, { recursive: true });
-            }
-
-            const targetPath = path.join(targetDir, cleanFilename);
-            fs.writeFileSync(targetPath, buffer);
-
-            const distDir = path.resolve('dist/assets/portraits');
-            if (fs.existsSync(distDir)) {
-              fs.writeFileSync(path.join(distDir, cleanFilename), buffer);
-            }
-
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 200;
-            res.end(JSON.stringify({ success: true, filename: cleanFilename }));
-          } catch (err: any) {
-            res.statusCode = 500;
-            res.end(JSON.stringify({ error: err.message }));
-          }
-        });
-      });
-    },
-  };
-}
+import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
     base: './',
-    plugins: [react(), tailwindcss(), uploadPortraitPlugin()],
+    plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve('.'),
@@ -82,7 +26,6 @@ export default defineConfig(() => {
       },
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },

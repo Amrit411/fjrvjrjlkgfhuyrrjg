@@ -14,41 +14,24 @@ An interactive digital archive and comparative mythological atlas celebrating an
 - **Comparative Timeline**: Cross-cultural historical eras and literary sources (from the Rigveda and Homeric Epics to the Eddas and Book of the Dead).
 - **Oracle of Chance**: Serendipitous discovery engine with animated randomized cards.
 - **Fast Fuzzy Search**: Instant keyboard shortcut (`Ctrl+K` or `Cmd+K`) search across names, lore, symbols, and elements.
-- **High-Definition Visuals**: Built-in authentic, high-resolution imagery for every god and creature.
-- **24 Local Character Portraits**: Dedicated high-resolution character portraits stored in `public/assets/portraits/` (`shiva.png`, `zeus.png`, `odin.png`, etc.) ensuring rapid offline loading and static hosting compatibility with GitHub Pages.
+- **Pure Vector Mathematical Epigraphy**: 100% SVG sacred emblems for every deity and creature (Trishula, Mjölnir, Aegis, Solar Uraeus, Sudarshana Chakra, etc.) ensuring instantaneous 0ms loading and perfect crispness at any resolution.
+- **Mythos Codex Vault**: Interactive lore repository with canonical cultural descriptions and client-side custom artwork overrides saved directly to browser storage.
 
 ---
 
-## 🎨 Character Portraits Directory (`public/assets/portraits/`)
+## 🏛️ Sacred Iconography & Vector Architecture
 
-All character portraits are cleanly organized in `public/assets/portraits/`. You can customize or replace any character's portrait simply by placing an image with the corresponding filename:
+Every legend features authentic cultural emblems rendered mathematically via vector SVG:
 
-| Character Name | Category | Filename |
+| Tradition | Iconic Symbols & Sacred Epigraphy | Featured Legends |
 |---|---|---|
-| **Lord Shiva** | Indian Deity | `shiva.png` |
-| **Zeus** | Greek Deity | `zeus.png` |
-| **Odin** | Norse Deity | `odin.png` |
-| **Ra** | Egyptian Deity | `ra.png` |
-| **Amaterasu** | Japanese Deity | `amaterasu.png` |
-| **Medusa** | Greek Mythical Creature | `medusa.png` |
-| **Fenrir** | Norse Mythical Beast | `fenrir.png` |
-| **Anubis** | Egyptian Deity | `anubis.png` |
-| **Garuda** | Indian Divine Beast | `garuda.png` |
-| **Quetzalcoatl** | Mesoamerican Deity | `quetzalcoatl.png` |
-| **Thor** | Norse Deity | `thor.png` |
-| **Kitsune** | Japanese Mythical Fox | `kitsune.png` |
-| **Lord Vishnu** | Indian Deity | `vishnu.png` |
-| **Poseidon** | Greek Deity | `poseidon.png` |
-| **Hades** | Greek Deity | `hades.png` |
-| **Athena** | Greek Deity | `athena.png` |
-| **Loki** | Norse Deity | `loki.png` |
-| **Osiris** | Egyptian Deity | `osiris.png` |
-| **Dragon** | Legendary Beast | `dragon.png` |
-| **Phoenix** | Immortal Firebird | `phoenix.png` |
-| **Kraken** | Oceanic Leviathan | `kraken.png` |
-| **Cerberus** | Underworld Guardian | `cerberus.png` |
-| **Susanoo** | Japanese Storm Deity | `susanoo.png` |
-| **The Morrígan** | Celtic War Goddess | `morrigan.png` |
+| **Indian (Vedic)** | Trishula, Damaru, Sudarshana Chakra, Golden Wings (`ॐ नमः शिवाय`) | Lord Shiva, Lord Vishnu, Garuda |
+| **Greek** | Olympian Lightning Bolt, Ocean Trident, Underworld Bident, Aegis Shield | Zeus, Poseidon, Hades, Athena, Medusa, Cerberus |
+| **Norse** | Gungnir Spear, Valknut, Mjölnir Hammer, Gleipnir Chains (`ᛟᛞᛁᚾ`) | Odin, Thor, Loki, Fenrir |
+| **Egyptian** | Solar Uraeus, Eye of Horus, Scales of Ma'at, Atef Crown (`𓊹 𓂋 𓂝`) | Ra, Anubis, Osiris |
+| **Japanese (Shinto)** | Yata no Kagami Mirror, Kusanagi Blade, 9-Tailed Foxfire (`天照大御神`) | Amaterasu, Susanoo, Kitsune |
+| **Celtic** | Phantom Crow, Battle Spear, Sacred Ogham Script (`᚛ᚋᚑᚏᚏᚔ⠛ᚐᚾ᚜`) | The Morrígan |
+| **Mesoamerican** | Quetzal Plumes, Jade Sun Calendar Sigil | Quetzalcoatl |
 
 ---
 

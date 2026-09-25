@@ -123,7 +123,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onNavigate, onOpenRandom }
                     Clean Modular Architecture
                   </h4>
                   <p className="text-xs text-[#9CA3AF]">
-                    Built with modern React 19, TypeScript, Vite, and Tailwind CSS. Static portrait assets are cleanly referenced from <code className="text-[#F4D58D]">public/assets/portraits/</code> for zero-latency loading and reliable production deployments.
+                    Built with modern React 19, TypeScript, Vite, and Tailwind CSS. Employs 100% vector SVG mathematical emblems and dynamic 3D holographic tarot physics for instantaneous zero-latency rendering across all devices.
                   </p>
                 </div>
               </div>
