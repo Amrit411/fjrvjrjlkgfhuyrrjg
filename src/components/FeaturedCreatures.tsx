@@ -40,7 +40,7 @@ export const FeaturedCreatures: React.FC<FeaturedCreaturesProps> = ({
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#243048]/60">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#243048]/60 w-full max-w-full overflow-hidden">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#161F30] border border-[#243048] text-xs font-mono text-[#D4AF37] mb-3">

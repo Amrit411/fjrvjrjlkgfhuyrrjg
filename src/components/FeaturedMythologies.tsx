@@ -16,7 +16,7 @@ export const FeaturedMythologies: React.FC<FeaturedMythologiesProps> = ({
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
 
       <div className="flex flex-col items-center text-center mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#161F30] border border-[#243048] text-xs font-mono text-[#D4AF37] mb-3">

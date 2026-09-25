@@ -517,17 +517,35 @@ export const MythicTarotCard: React.FC<MythicTarotCardProps> = ({
       case 'creature-garuda':
         return (
           <g>
-            {/* Spread Golden Wings */}
-            <path d="M100 110 Q60 50 35 70 Q55 105 85 118 Z" fill="url(#goldGrad)" opacity="0.85" />
-            <path d="M100 110 Q140 50 165 70 Q145 105 115 118 Z" fill="url(#goldGrad)" opacity="0.85" />
+            {/* Solar Mandala Halo behind King Garuda */}
+            <circle cx="100" cy="80" r="42" fill="none" stroke="#FDE047" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+            <circle cx="100" cy="80" r="34" fill="#F59E0B" opacity="0.2" />
 
-            {/* Celestial Beak & Face */}
-            <polygon points="100,55 92,75 100,95 108,75" fill="#F59E0B" stroke="#D4AF37" strokeWidth="1.5" />
-            <path d="M96 85 Q100 102 104 85" fill="#B45309" />
+            {/* Expansive Layered Golden Wings */}
+            <path d="M100 100 C70 40, 30 50, 15 75 C35 105, 65 115, 90 115 Z" fill="url(#goldGrad)" opacity="0.9" />
+            <path d="M100 100 C130 40, 170 50, 185 75 C165 105, 135 115, 110 115 Z" fill="url(#goldGrad)" opacity="0.9" />
+            <path d="M100 105 C60 80, 30 110, 25 135 C55 130, 80 120, 95 112 Z" fill="#D97706" opacity="0.75" />
+            <path d="M100 105 C140 80, 170 110, 175 135 C145 130, 120 120, 105 112 Z" fill="#D97706" opacity="0.75" />
 
-            {/* Vedic Crown (Kirita Mukuta) */}
-            <polygon points="90,55 100,32 110,55 104,50 100,42 96,50" fill="#FDE047" stroke="#B45309" strokeWidth="1" />
-            <circle cx="100" cy="48" r="2.5" fill="#EF4444" />
+            {/* Wing Feather Ribs */}
+            <path d="M100 100 Q50 65 20 80" stroke="#FFF" strokeWidth="1.5" fill="none" opacity="0.7" />
+            <path d="M100 100 Q150 65 180 80" stroke="#FFF" strokeWidth="1.5" fill="none" opacity="0.7" />
+
+            {/* Heroic Armored Torso */}
+            <path d="M92 98 Q100 115 108 98 L105 132 Q100 138 95 132 Z" fill="url(#goldGrad)" stroke="#B45309" strokeWidth="1.5" />
+            {/* Kalasha (Amrita Pot of Immortality) */}
+            <ellipse cx="100" cy="142" rx="9" ry="8" fill="url(#goldGrad)" stroke="#FFF" strokeWidth="1" />
+            <circle cx="100" cy="142" r="2.5" fill="#22C55E" />
+
+            {/* Avian Head & Majestic Crown (Kirita Mukuta) */}
+            <polygon points="90,62 100,32 110,62 105,58 100,45 95,58" fill="#FDE047" stroke="#B45309" strokeWidth="1.5" />
+            <circle cx="100" cy="50" r="2.5" fill="#EF4444" />
+
+            {/* Golden Beak & Piercing Eyes */}
+            <polygon points="94,62 100,50 106,62" fill="#FEF08A" />
+            <path d="M95 62 Q100 78 105 62 Z" fill="#F59E0B" stroke="#78350F" strokeWidth="1" />
+            <circle cx="96" cy="58" r="1.8" fill="#000" />
+            <circle cx="104" cy="58" r="1.8" fill="#000" />
           </g>
         );
 
@@ -609,60 +627,103 @@ export const MythicTarotCard: React.FC<MythicTarotCardProps> = ({
       case 'creature-dragon':
         return (
           <g>
-            {/* Coiled Dragon Silhouette */}
+            {/* Coiling Primordial Wyrm Body */}
             <path
-              d="M75 145 Q55 110 70 80 Q85 55 110 50 Q135 48 145 65 Q140 85 120 90 Q135 105 130 135 Q115 155 90 150 Z"
+              d="M 65 140 C 45 105, 60 70, 95 65 C 135 60, 155 85, 145 115 C 135 145, 95 150, 75 130 C 55 110, 80 85, 110 88"
               fill="none"
               stroke="#EA580C"
-              strokeWidth="3.5"
+              strokeWidth="4"
+              strokeLinecap="round"
             />
+            {/* Scaled ridges along spine */}
+            <polygon points="90,62 95,50 100,62" fill="#FDE047" />
+            <polygon points="110,60 118,48 122,62" fill="#FDE047" />
+            <polygon points="135,68 145,55 146,72" fill="#FDE047" />
+
             {/* Horned Dragon Head */}
-            <polygon points="145,65 160,55 148,72 135,70" fill="#F97316" stroke="#7C2D12" strokeWidth="1.5" />
-            {/* Spreading Fire Embers */}
-            <polygon points="152,70 168,76 156,80" fill="#FDE047" />
-            <polygon points="160,78 175,82 165,86" fill="#EF4444" />
+            <path d="M 125 90 L 155 82 L 140 102 Z" fill="#DC2626" stroke="#B45309" strokeWidth="1.5" />
+            <polygon points="128,88 120,68 135,84" fill="#FDE047" stroke="#78350F" strokeWidth="1" />
+            <polygon points="138,84 140,62 146,82" fill="#FDE047" stroke="#78350F" strokeWidth="1" />
+
+            {/* Glowing Golden Eye */}
+            <circle cx="138" cy="88" r="2.5" fill="#FDE047" />
+            <circle cx="138" cy="88" r="1" fill="#000" />
+
+            {/* Blazing Breath Embers */}
+            <path d="M 152 86 Q 170 78 185 84 Q 170 94 150 90 Z" fill="url(#fireGrad)" opacity="0.9" />
+            <circle cx="165" cy="82" r="3" fill="#FDE047" />
+            <circle cx="178" cy="85" r="2" fill="#FFF" />
           </g>
         );
 
       case 'creature-phoenix':
         return (
           <g>
-            {/* Ascending Firebird Wings */}
-            <path d="M100 115 Q65 60 40 45 Q70 70 85 95" fill="none" stroke="#FDE047" strokeWidth="3" />
-            <path d="M100 115 Q135 60 160 45 Q130 70 115 95" fill="none" stroke="#FDE047" strokeWidth="3" />
-            {/* Rebirth Solar Body */}
-            <polygon points="100,45 92,85 100,125 108,85" fill="url(#fireGrad)" stroke="#FDE047" strokeWidth="1.5" />
-            {/* Crown of Flames */}
-            <polygon points="95,45 100,28 105,45" fill="#EF4444" />
+            {/* Solar Disc Behind Phoenix */}
+            <circle cx="100" cy="80" r="38" fill="url(#sunGrad)" opacity="0.35" />
+            <circle cx="100" cy="80" r="42" fill="none" stroke="#FDE047" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+
+            {/* Ascending Firebird Layered Wings */}
+            <path d="M100 110 C70 50, 35 40, 20 65 C45 85, 75 100, 95 105 Z" fill="url(#fireGrad)" stroke="#FDE047" strokeWidth="1.5" />
+            <path d="M100 110 C130 50, 165 40, 180 65 C155 85, 125 100, 105 105 Z" fill="url(#fireGrad)" stroke="#FDE047" strokeWidth="1.5" />
+
+            {/* Feather Flames */}
+            <path d="M100 110 Q55 60 30 70" stroke="#FFF" strokeWidth="1.5" fill="none" opacity="0.8" />
+            <path d="M100 110 Q145 60 170 70" stroke="#FFF" strokeWidth="1.5" fill="none" opacity="0.8" />
+
+            {/* Rebirth Solar Body & Tail Flames */}
+            <polygon points="100,50 92,85 100,120 108,85" fill="#F59E0B" stroke="#FDE047" strokeWidth="1.5" />
+            <path d="M100 120 C90 145, 70 155, 60 168 C80 158, 95 140, 100 122 Z" fill="#EF4444" />
+            <path d="M100 120 C110 145, 130 155, 140 168 C120 158, 105 140, 100 122 Z" fill="#EF4444" />
+            <path d="M100 120 Q100 150 100 170" stroke="#FDE047" strokeWidth="2.5" fill="none" />
+
+            {/* Crown of Holy Flames */}
+            <polygon points="95,50 100,32 105,50" fill="#EF4444" />
+            <circle cx="100" cy="38" r="2.5" fill="#FFF" />
           </g>
         );
 
       case 'creature-kitsune':
         return (
           <g>
+            {/* Shinto Torii Outline in background */}
+            <line x1="75" y1="58" x2="125" y2="58" stroke="#EF4444" strokeWidth="2" opacity="0.4" />
+            <line x1="85" y1="58" x2="85" y2="120" stroke="#EF4444" strokeWidth="1.5" opacity="0.3" />
+            <line x1="115" y1="58" x2="115" y2="120" stroke="#EF4444" strokeWidth="1.5" opacity="0.3" />
+
             {/* 9 Fox Tails Fan */}
             {[-4, -3, -2, -1, 0, 1, 2, 3, 4].map((idx) => {
               const angle = (idx * 16 * Math.PI) / 180;
-              const x2 = 100 + Math.sin(angle) * 60;
-              const y2 = 115 - Math.cos(angle) * 55;
+              const x2 = 100 + Math.sin(angle) * 58;
+              const y2 = 115 - Math.cos(angle) * 52;
               return (
                 <path
                   key={idx}
                   d={`M100 120 Q${100 + idx * 8} 80 ${x2} ${y2}`}
                   fill="none"
-                  stroke="#818CF8"
-                  strokeWidth="3"
+                  stroke={idx === 0 ? '#C084FC' : '#818CF8'}
+                  strokeWidth="3.5"
                   strokeLinecap="round"
-                  opacity={0.8}
+                  opacity={0.85}
                 />
               );
             })}
+            {/* Crimson Tail Tips */}
+            {[-4, -3, -2, -1, 0, 1, 2, 3, 4].map((idx) => {
+              const angle = (idx * 16 * Math.PI) / 180;
+              const x2 = 100 + Math.sin(angle) * 58;
+              const y2 = 115 - Math.cos(angle) * 52;
+              return <circle key={idx} cx={x2} cy={y2} r="3" fill="#EF4444" />;
+            })}
+
             {/* Sacred Shrine Fox Mask */}
-            <polygon points="100,75 84,98 92,122 100,132 108,122 116,98" fill="#F8FAFC" stroke="#818CF8" strokeWidth="2" />
+            <polygon points="100,78 84,98 92,122 100,132 108,122 116,98" fill="#F8FAFC" stroke="#818CF8" strokeWidth="2" />
+            {/* Kumadori Markings */}
             <path d="M88 95 Q94 105 100 102" stroke="#EF4444" strokeWidth="2" fill="none" />
             <path d="M112 95 Q106 105 100 102" stroke="#EF4444" strokeWidth="2" fill="none" />
-            {/* Blue Foxfire will-o-wisp */}
-            <circle cx="100" cy="55" r="6" fill="#38BDF8" filter="url(#glowFilter)" />
+
+            {/* Sacred Spirit Jewel Hoshi no Tama */}
+            <circle cx="100" cy="52" r="7" fill="url(#goldGrad)" stroke="#FFF" strokeWidth="1" filter="url(#glowFilter)" />
           </g>
         );
 

@@ -122,7 +122,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
   }, [searchQuery, selectedRegions, selectedClasses, selectedElements, minPower, sortBy, showSavedOnly, isFavorite]);
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
 
       <div className="mb-10 text-center sm:text-left">
         <span className="text-xs font-serif-ancient tracking-[0.25em] text-[#D4AF37] uppercase font-semibold mb-2 block">

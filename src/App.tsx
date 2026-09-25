@@ -39,22 +39,9 @@ export function App() {
   const [isArtworksOpen, setIsArtworksOpen] = useState(false);
   const [isOracleOpen, setIsOracleOpen] = useState(false);
   const [isArenaOpen, setIsArenaOpen] = useState(false);
-  const [isLightMode, setIsLightMode] = useState(false);
 
   const [exploreRegion, setExploreRegion] = useState<string | undefined>(undefined);
   const [exploreType, setExploreType] = useState<string | undefined>(undefined);
-
-  const toggleTheme = () => {
-    setIsLightMode((prev) => {
-      const next = !prev;
-      if (next) {
-        document.documentElement.classList.add('light-parchment');
-      } else {
-        document.documentElement.classList.remove('light-parchment');
-      }
-      return next;
-    });
-  };
 
   useKeyboardShortcuts({
     onSearch: () => setIsSearchOpen((prev) => !prev),
@@ -64,7 +51,6 @@ export function App() {
       setIsSearchOpen(false);
       setIsRandomOpen(false);
     },
-    onToggleTheme: toggleTheme,
   });
 
   const handleSelectCultureFromHome = (culture: MythologySystem) => {
@@ -92,7 +78,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080B12] text-[#F5F5F0] flex flex-col selection:bg-[#D4AF37]/30 selection:text-[#F4D58D] font-sans antialiased relative">
+    <div className="min-h-screen bg-[#080B12] text-[#F5F5F0] flex flex-col selection:bg-[#D4AF37]/30 selection:text-[#F4D58D] font-sans antialiased relative w-full max-w-full overflow-x-hidden">
       {/* Background Animated Stardust & Constellations */}
       <MythicCosmicCanvas />
 
@@ -101,16 +87,14 @@ export function App() {
         onNavigate={handleNavigate}
         onOpenSearch={() => setIsSearchOpen(true)}
         onTriggerRandom={() => setIsRandomOpen(true)}
-        isLightMode={isLightMode}
-        onToggleTheme={toggleTheme}
         onOpenArtworks={() => setIsArtworksOpen(true)}
         onOpenOracle={() => setIsOracleOpen(true)}
         onOpenArena={() => setIsArenaOpen(true)}
       />
 
-      <div className="flex-1 w-full">
+      <div className="flex-1 w-full max-w-full overflow-x-hidden">
         {currentView === 'home' && (
-          <main className="space-y-6">
+          <main className="space-y-6 w-full max-w-full overflow-x-hidden">
 
             <HeroSection
               onNavigate={handleNavigate}

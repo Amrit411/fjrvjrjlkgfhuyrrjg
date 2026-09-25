@@ -87,10 +87,29 @@ html.light ::-webkit-scrollbar-track {
   scrollbar-width: none;
 }
 
-html, body {
+html {
   overflow-x: hidden;
-  max-width: 100%;
-  min-height: 100%;
+  max-width: 100vw;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
 }
 

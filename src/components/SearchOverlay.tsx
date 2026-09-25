@@ -3,6 +3,7 @@ import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
 import { ALL_LEGENDS } from '../data/mythologyData';
 import { LegendEntry } from '../types/mythology';
 import { VisualArtifact } from './VisualArtifact';
+import { CreatureArtworkSVG } from './CreatureArtworks';
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -169,8 +170,10 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({
                     className="w-full flex items-center justify-between p-3 rounded-lg bg-[#111827]/60 hover:bg-[#161F30] border border-transparent hover:border-[#D4AF37]/50 transition-all text-left group cursor-pointer"
                   >
                     <div className="flex items-center gap-4 min-w-0">
-                      <div className="w-12 h-12 shrink-0 rounded-lg overflow-hidden border border-[#243048] bg-[#161F30]">
-                        {legend.image ? (
+                      <div className="w-12 h-12 shrink-0 rounded-lg overflow-hidden border border-[#243048] bg-[#080B12] flex items-center justify-center">
+                        {['creature-dragon', 'creature-phoenix', 'creature-kitsune', 'creature-garuda'].includes(legend.id) ? (
+                          <CreatureArtworkSVG id={legend.id} className="w-full h-full object-contain p-0.5" />
+                        ) : legend.image ? (
                           <img
                             src={legend.image}
                             alt={legend.imageAlt || legend.name}

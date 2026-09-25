@@ -23,7 +23,7 @@ export const LegendOfTheDay: React.FC<LegendOfTheDayProps> = ({
   }, []);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
       <div className="relative rounded-2xl bg-gradient-to-r from-[#111827] via-[#161F30] to-[#111827] border border-[#D4AF37]/40 p-6 sm:p-10 md:p-12 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
 
         <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-[#D4AF37]/10 pointer-events-none" />

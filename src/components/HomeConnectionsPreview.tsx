@@ -27,7 +27,7 @@ export const HomeConnectionsPreview: React.FC<HomeConnectionsPreviewProps> = ({ 
   ];
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
       <div className="bg-[#0b101b] border border-[#243048] rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden">
 
         <div className="text-center max-w-3xl mx-auto mb-10">

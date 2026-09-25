@@ -82,6 +82,7 @@ export const VisualArtifact: React.FC<VisualArtifactProps> = ({
         );
 
       case 'fox':
+      case 'kitsune':
         return (
           <g transform="translate(100, 100) scale(0.85)">
 
@@ -124,6 +125,7 @@ export const VisualArtifact: React.FC<VisualArtifactProps> = ({
         );
 
       case 'eagle':
+      case 'garuda':
         return (
           <g transform="translate(100, 100) scale(0.85)">
 

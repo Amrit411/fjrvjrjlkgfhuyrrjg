@@ -79,7 +79,7 @@ export const HomeTimelinePreview: React.FC<HomeTimelinePreviewProps> = ({ onNavi
   const activeMilestone = TIMELINE_MILESTONES[selectedIndex];
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
 
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#161F30] border border-[#243048] text-xs font-mono text-[#D4AF37] mb-3">

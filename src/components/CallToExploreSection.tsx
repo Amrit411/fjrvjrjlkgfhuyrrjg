@@ -8,7 +8,7 @@ interface CallToExploreSectionProps {
 
 export const CallToExploreSection: React.FC<CallToExploreSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center w-full max-w-full overflow-hidden">
       <div className="relative bg-gradient-to-b from-[#111827] via-[#0E1524] to-[#080B12] rounded-3xl border border-[#D4AF37]/40 p-8 sm:p-16 shadow-2xl overflow-hidden">
 
         <div

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Sparkles, Volume2, VolumeX, Swords, Menu, X, Bookmark, Archive, Sun, Moon } from 'lucide-react';
+import { Search, Sparkles, Volume2, VolumeX, Swords, Menu, X, Bookmark, Archive } from 'lucide-react';
 import { useFavorites } from '../hooks/useFavorites';
 import { ambientSound } from '../utils/ambientAudio';
 
@@ -10,8 +10,6 @@ interface NavbarProps {
   onNavigate: (view: NavView) => void;
   onOpenSearch: () => void;
   onTriggerRandom: () => void;
-  isLightMode: boolean;
-  onToggleTheme: () => void;
   onOpenArtworks?: () => void;
   onOpenOracle?: () => void;
   onOpenArena?: () => void;
@@ -22,8 +20,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onNavigate,
   onOpenSearch,
   onTriggerRandom,
-  isLightMode,
-  onToggleTheme,
   onOpenArtworks,
   onOpenOracle,
   onOpenArena,
@@ -67,15 +63,16 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${
           isScrolled
-            ? 'bg-[#080B12]/90 dark:bg-[#080B12]/90 backdrop-blur-md border-[#243048]/80 py-3 shadow-lg'
-            : 'bg-transparent border-transparent py-5'
+            ? 'bg-[#080B12]/95 backdrop-blur-md border-[#243048]/80 py-3 shadow-lg'
+            : 'bg-[#080B12]/80 backdrop-blur-sm border-[#243048]/40 py-3.5 sm:py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
 
+          {/* Brand Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="group flex flex-col items-start text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded"
+            className="group flex flex-col items-start text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded shrink-0 cursor-pointer"
             aria-label="Mythos Atlas Home"
           >
             <span className="font-serif-ancient text-xl sm:text-2xl font-bold tracking-[0.2em] text-[#F5F5F0] group-hover:text-[#D4AF37] transition-colors leading-none">
@@ -86,14 +83,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
           </button>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          {/* Desktop & Laptop Nav Links: shrink-0 and clean gap so it NEVER wraps or collides */}
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-7 shrink-0">
             {navLinks.map((link) => {
               const isActive = currentView === link.id;
               return (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`text-sm tracking-wider uppercase transition-colors relative py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] ${
+                  className={`text-xs xl:text-sm tracking-wider uppercase transition-colors relative py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'text-[#D4AF37] font-semibold'
                       : 'text-[#9CA3AF] hover:text-[#F5F5F0]'
@@ -108,13 +106,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-2 shrink-0">
             {/* Ambient Sound Drone Toggle */}
             <button
               onClick={handleToggleSound}
-              title={isAudioActive ? 'Mute Sacred 432Hz Temple Drone' : 'Play Sacred 432Hz Temple Drone (Procedural Audio)'}
+              title={isAudioActive ? 'Mute Sacred 432Hz Sound' : 'Play Sacred 432Hz Sound'}
               aria-label="Toggle ambient sacred soundscape"
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-mono transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 h-8 px-2.5 rounded-lg border text-xs font-mono transition-all cursor-pointer shrink-0 ${
                 isAudioActive
                   ? 'bg-[#D4AF37]/20 border-[#D4AF37] text-[#FDE047] shadow-[0_0_12px_rgba(212,175,55,0.35)]'
                   : 'bg-[#161F30]/70 border-[#243048] text-[#9CA3AF] hover:text-[#F5F5F0] hover:border-[#D4AF37]/50'
@@ -123,12 +122,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isAudioActive ? (
                 <>
                   <Volume2 className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-                  <span className="hidden xl:inline text-[10px] text-[#D4AF37] font-semibold">CHIME</span>
+                  <span className="text-[10px] text-[#D4AF37] font-semibold tracking-wider">SOUND ON</span>
                 </>
               ) : (
                 <>
                   <VolumeX className="w-3.5 h-3.5" />
-                  <span className="hidden xl:inline text-[10px]">SOUND</span>
+                  <span className="text-[10px] tracking-wider">SOUND</span>
                 </>
               )}
             </button>
@@ -138,10 +137,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={onOpenOracle}
                 title="Consult Fate's Oracle (Daily Tarot Divination)"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-serif-ancient tracking-wider uppercase text-[#D4AF37] bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/50 rounded-lg transition-all cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.25)]"
+                className="hidden xl:inline-flex items-center gap-1.5 h-8 px-2.5 text-xs font-serif-ancient tracking-wider uppercase text-[#D4AF37] bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/50 rounded-lg transition-all cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.25)] shrink-0"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline font-bold">Oracle</span>
+                <span className="font-bold">Oracle</span>
               </button>
             )}
 
@@ -150,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={onOpenArena}
                 title="Enter the Mythic Arena (Clash of Legends Showdown)"
-                className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-serif-ancient tracking-wider uppercase text-[#38BDF8] bg-[#38BDF8]/10 hover:bg-[#38BDF8]/20 border border-[#38BDF8]/40 rounded-lg transition-all cursor-pointer hover:shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+                className="hidden 2xl:inline-flex items-center gap-1.5 h-8 px-2.5 text-xs font-serif-ancient tracking-wider uppercase text-[#38BDF8] bg-[#38BDF8]/10 hover:bg-[#38BDF8]/20 border border-[#38BDF8]/40 rounded-lg transition-all cursor-pointer hover:shadow-[0_0_15px_rgba(56,189,248,0.25)] shrink-0"
               >
                 <Swords className="w-3.5 h-3.5 text-[#38BDF8]" />
                 <span className="font-bold">Arena</span>
@@ -161,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => handleNavClick('explore')}
                 title={`${favoriteCount} saved legend${favoriteCount === 1 ? '' : 's'} in your personal pantheon`}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono text-[#F4D58D] bg-[#D4AF37]/15 border border-[#D4AF37]/40 rounded-lg hover:bg-[#D4AF37]/25 transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 h-8 px-2.5 text-xs font-mono text-[#F4D58D] bg-[#D4AF37]/15 border border-[#D4AF37]/40 rounded-lg hover:bg-[#D4AF37]/25 transition-all cursor-pointer shrink-0"
               >
                 <Bookmark className="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]" />
                 <span className="font-bold">{favoriteCount}</span>
@@ -171,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {onOpenArtworks && (
               <button
                 onClick={onOpenArtworks}
-                className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-[#D4AF37] hover:text-[#F4D58D] bg-[#161F30]/80 hover:bg-[#1E293B] border border-[#D4AF37]/50 rounded-lg transition-all cursor-pointer"
+                className="hidden 2xl:flex items-center gap-1.5 h-8 px-2.5 text-xs text-[#D4AF37] hover:text-[#F4D58D] bg-[#161F30]/80 hover:bg-[#1E293B] border border-[#D4AF37]/50 rounded-lg transition-all cursor-pointer shrink-0"
                 title="Codex Icon & Lore Vault"
                 aria-label="Codex Vault"
               >
@@ -180,35 +179,27 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             )}
 
+            {/* Search Button */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 text-xs text-[#9CA3AF] hover:text-[#F5F5F0] bg-[#161F30]/80 hover:bg-[#1E293B] border border-[#243048] rounded-lg transition-all cursor-pointer"
+              className="flex items-center gap-1.5 sm:gap-2 h-8 px-2.5 sm:px-3 text-xs text-[#9CA3AF] hover:text-[#F5F5F0] bg-[#161F30]/80 hover:bg-[#1E293B] border border-[#243048] rounded-lg transition-all cursor-pointer shrink-0"
               aria-label="Open Search"
             >
-              <Search className="w-4 h-4 text-[#D4AF37]" />
-              <span className="hidden md:inline font-sans">Search</span>
-              <kbd className="hidden md:inline px-1.5 py-0.5 text-[10px] font-mono text-[#9CA3AF] bg-[#080B12] border border-[#243048] rounded">
+              <Search className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span className="hidden sm:inline font-sans">Search</span>
+              <kbd className="hidden md:inline px-1.5 py-0.5 text-[9px] font-mono text-[#9CA3AF] bg-[#080B12] border border-[#243048] rounded">
                 ⌘K
               </kbd>
             </button>
 
-            {/* Celestial Astral Mood Switcher */}
-            <button
-              onClick={onToggleTheme}
-              className="p-2 text-[#9CA3AF] hover:text-[#D4AF37] bg-[#161F30]/60 hover:bg-[#1E293B] border border-[#243048] rounded-lg transition-colors cursor-pointer"
-              title={isLightMode ? 'Switch to Obsidian Night Realm' : 'Switch to Solar Temple Realm'}
-              aria-label="Toggle Celestial Realm"
-            >
-              {isLightMode ? <Moon className="w-4 h-4 text-[#38BDF8]" /> : <Sun className="w-4 h-4 text-[#FDE047]" />}
-            </button>
-
+            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-[#F5F5F0] hover:text-[#D4AF37] bg-[#161F30] border border-[#243048] rounded-lg transition-colors cursor-pointer active:scale-95"
+              className="lg:hidden p-1.5 h-8 w-8 flex items-center justify-center text-[#F5F5F0] hover:text-[#D4AF37] bg-[#161F30] border border-[#243048] rounded-lg transition-colors cursor-pointer active:scale-95 shrink-0"
               aria-label="Toggle navigation drawer"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>

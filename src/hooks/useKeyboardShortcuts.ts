@@ -4,14 +4,12 @@ interface ShortcutOptions {
   onSearch?: () => void;
   onRandom?: () => void;
   onEscape?: () => void;
-  onToggleTheme?: () => void;
 }
 
 export function useKeyboardShortcuts({
   onSearch,
   onRandom,
   onEscape,
-  onToggleTheme,
 }: ShortcutOptions) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -42,14 +40,11 @@ export function useKeyboardShortcuts({
         if (e.key.toLowerCase() === 'r') {
           e.preventDefault();
           onRandom?.();
-        } else if (e.key.toLowerCase() === 't') {
-          e.preventDefault();
-          onToggleTheme?.();
         }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onSearch, onRandom, onEscape, onToggleTheme]);
+  }, [onSearch, onRandom, onEscape]);
 }

@@ -32,7 +32,7 @@ export const ConnectionsView: React.FC<ConnectionsViewProps> = ({ onSelectLegend
   };
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
 
       <div className="text-center max-w-3xl mx-auto mb-10">
         <span className="text-xs font-serif-ancient tracking-[0.25em] text-[#D4AF37] uppercase font-semibold mb-2 block">

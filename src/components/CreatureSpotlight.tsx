@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Sparkles, Flame, Shield, Compass, ArrowRight, Eye, Feather } from 'lucide-react';
 import { LegendEntry } from '../types/mythology';
 import { ALL_LEGENDS } from '../data/mythologyData';
+import { CreatureArtworkSVG } from './CreatureArtworks';
 
 interface CreatureSpotlightProps {
   onSelectLegend: (legend: LegendEntry) => void;
@@ -54,23 +55,23 @@ export const CreatureSpotlight: React.FC<CreatureSpotlightProps> = ({ onSelectLe
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-[#243048] shadow-2xl aspect-[4/3] group">
-              <img
-                src={activeCreature.image || 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop'}
-                alt={activeCreature.imageAlt || activeCreature.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/50 shadow-2xl aspect-square sm:aspect-[4/3] group bg-[#080B12]">
+              <CreatureArtworkSVG
+                id={activeCreature.id}
+                className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080B12] via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080B12]/80 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute top-4 left-4 px-3 py-1 bg-[#080B12]/85 backdrop-blur-md border border-[#243048] rounded-full text-xs font-mono text-[#F4D58D]">
+              <div className="absolute top-4 left-4 px-3 py-1 bg-[#080B12]/85 backdrop-blur-md border border-[#243048] rounded-full text-xs font-mono text-[#F4D58D] shadow">
                 {activeCreature.mythology} Tradition
               </div>
-              <div className="absolute top-4 right-4 px-3 py-1 bg-[#080B12]/85 backdrop-blur-md border border-[#243048] rounded-full text-xs font-mono text-[#D4AF37]">
-                Element: {activeCreature.element}
+              <div className="absolute top-4 right-4 px-3 py-1 bg-[#080B12]/85 backdrop-blur-md border border-[#D4AF37]/50 rounded-full text-xs font-mono text-[#D4AF37] shadow">
+                Vector SVG Codex
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-[#9CA3AF] bg-[#080B12]/75 backdrop-blur-sm p-2 rounded border border-[#243048]">
-                Habitat: {activeCreature.habitat}
+              <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-[#9CA3AF] bg-[#080B12]/85 backdrop-blur-sm p-2 rounded border border-[#243048] flex items-center justify-between">
+                <span>Habitat: {activeCreature.habitat}</span>
+                <span className="text-[#D4AF37] font-bold">Element: {activeCreature.element}</span>
               </div>
             </div>
           </div>

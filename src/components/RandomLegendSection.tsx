@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Sparkles, Dices, ArrowRight, Shield, Zap } from 'lucide-react';
 import { LegendEntry } from '../types/mythology';
 import { ALL_LEGENDS } from '../data/mythologyData';
+import { CreatureArtworkSVG } from './CreatureArtworks';
+import { LegendArtwork } from './LegendArtwork';
 
 interface RandomLegendSectionProps {
   onSelectLegend: (legend: LegendEntry) => void;
@@ -61,12 +63,12 @@ export const RandomLegendSection: React.FC<RandomLegendSectionProps> = ({ onSele
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
 
-            <div className="md:col-span-4 aspect-video md:aspect-square rounded-xl overflow-hidden border border-[#243048] relative">
-              <img
-                src={selectedLegend.image || 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600&auto=format&fit=crop'}
-                alt={selectedLegend.imageAlt || selectedLegend.name}
-                className="w-full h-full object-cover object-center"
-              />
+            <div className="md:col-span-4 aspect-video md:aspect-square rounded-xl overflow-hidden border border-[#D4AF37]/40 relative bg-[#080B12]">
+              {['creature-dragon', 'creature-phoenix', 'creature-kitsune', 'creature-garuda'].includes(selectedLegend.id) ? (
+                <CreatureArtworkSVG id={selectedLegend.id} className="w-full h-full object-contain p-2" />
+              ) : (
+                <LegendArtwork legend={selectedLegend} size="md" className="w-full h-full" />
+              )}
               <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#080B12]/80 text-[10px] font-mono text-[#D4AF37] border border-[#243048]">
                 {selectedLegend.mythology}
               </div>

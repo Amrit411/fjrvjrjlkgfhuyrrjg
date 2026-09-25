@@ -47,7 +47,7 @@ export const CreaturesView: React.FC<CreaturesViewProps> = ({ onSelectCreature }
   }, [allCreatures, searchQuery, selectedElement, selectedCategory]);
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full max-w-full overflow-hidden">
 
       <div className="text-center max-w-3xl mx-auto mb-12">
         <span className="text-xs font-serif-ancient tracking-[0.25em] text-[#D4AF37] uppercase font-semibold mb-2 block">
