@@ -94,11 +94,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectRegion }) =>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#9CA3AF] gap-4 font-mono">
-          <div>
-            © 2026 Mythos Atlas. Curated for mythology enthusiasts, students, and readers worldwide.
-          </div>
-          <div className="flex flex-wrap items-center gap-4 text-[11px]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-center text-xs text-[#9CA3AF] gap-4 font-mono">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-[11px]">
             <span>Cultural Folklore Archive</span>
             <span>·</span>
             <span>Open Source</span>

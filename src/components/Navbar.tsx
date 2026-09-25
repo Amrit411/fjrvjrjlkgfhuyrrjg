@@ -307,9 +307,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Sparkles className="w-4 h-4" />
                 <span>Discover Random Legend</span>
               </button>
-              <p className="text-[11px] text-[#9CA3AF] text-center mt-2">
-                © 2026 Mythos Atlas Archive
-              </p>
             </div>
           </div>
         </div>
